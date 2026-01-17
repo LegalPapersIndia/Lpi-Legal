@@ -47,7 +47,7 @@ const TestimonialsAndWhyChooseUs = () => {
       tag: "Company Incorporation",
       content: "I was confused between LLP and Pvt Ltd. The team at LPI-Legal didn't just sell me a service; they sat down with me for 30 minutes to explain the tax implications of both. That's real Janseva.",
       rating: 5,
-      avatar: "https://i.pravatar.cc/150?u=rahul"
+      avatar: "https://i.pravatar.cc/150?u=sarthak"
     },
     {
       name: "Meenakshi Iyer",
@@ -55,7 +55,7 @@ const TestimonialsAndWhyChooseUs = () => {
       tag: "FSSAI & Trademark",
       content: "Getting my food license and protecting my brand name was seamless. Their WhatsApp support is incredibly fast. I got my FSSAI certificate in just 4 days!",
       rating: 5,
-      avatar: "https://i.pravatar.cc/150?u=meena"
+      avatar: "https://i.pravatar.cc/150?u=amrita"
     },
     {
       name: "Sandeep Khurana",
@@ -63,7 +63,7 @@ const TestimonialsAndWhyChooseUs = () => {
       tag: "Import Export Code",
       content: "I needed my IEC urgently for a shipment. These guys got it done within 24 hours. Their transparency regarding government fees is what I liked the most.",
       rating: 5,
-      avatar: "https://i.pravatar.cc/150?u=sandy"
+      avatar: "https://i.pravatar.cc/150?u=sandeep"
     }
   ];
 
@@ -98,7 +98,7 @@ const TestimonialsAndWhyChooseUs = () => {
             <div className="lg:w-1/2 relative">
               <div className="relative z-10 bg-white p-2 rounded-[2rem] shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=800" 
+                  src="https://www.servcorp.co.uk/media/31723/green-office-space.jpg" 
                   alt="Team working" 
                   className="rounded-[1.8rem]"
                 />
