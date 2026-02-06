@@ -8,10 +8,11 @@ import {
   ArrowRight,
   Zap,
   Lock,
-  Sparkles,
   Briefcase,
   Scale,
   MessageCircle,
+  FileSearch,
+  DownloadCloud
 } from "lucide-react";
 
 const ServicesPage = () => {
@@ -71,23 +72,18 @@ const ServicesPage = () => {
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
   };
 
-  // Animation Variants
+  // Improved Animation Variants
   const fadeInUp = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
     },
   };
 
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
-  };
-
   return (
-    <div className="bg-[#FDFDFD] pt-32 pb-20 overflow-hidden selection:bg-blue-100 selection:text-blue-900">
+    <div className="bg-[#FDFDFD] pt-32 pb-20 selection:bg-blue-100 selection:text-blue-900">
       <div className="container mx-auto px-6 md:px-12">
         
         {/* --- HERO HEADER --- */}
@@ -96,9 +92,9 @@ const ServicesPage = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="max-w-4xl mb-32 pt-10 text-center md:text-left mx-auto md:mx-0"
+          className="max-w-4xl mb-32 pt-10"
         >
-          <div className="flex items-center justify-center md:justify-start gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-6">
             <span className="w-12 h-1.5 bg-blue-600 rounded-full"></span>
             <span className="text-blue-700 font-black tracking-[0.3em] text-[10px] uppercase">
               Our Expertise
@@ -136,33 +132,27 @@ const ServicesPage = () => {
                   {cat.description}
                 </p>
               </div>
-              <button className="flex items-center gap-2 text-blue-700 font-bold hover:gap-4 transition-all group px-6 py-3 rounded-xl bg-blue-50/50 hover:bg-blue-100 w-fit">
-                Download Catalog <ArrowRight size={20} />
-              </button>
             </motion.div>
 
-            <motion.div
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              className="grid lg:grid-cols-2 gap-8"
-            >
+            <div className="grid lg:grid-cols-2 gap-8">
               {cat.services.map((service, sIdx) => (
                 <motion.div
                   key={sIdx}
                   variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
                   whileHover={{ y: -8 }}
                   className="group relative bg-white rounded-[3rem] p-8 md:p-12 border border-slate-100 shadow-xl shadow-slate-200/40 transition-all duration-500 overflow-hidden"
                 >
                   {/* Decorative Gradient Glow */}
-                  <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-blue-100/30 blur-[80px] rounded-full group-hover:bg-blue-400/20 transition-colors duration-700" />
+                  <div className={`absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-${cat.accent}-100/30 blur-[80px] rounded-full group-hover:bg-${cat.accent}-400/20 transition-colors duration-700`} />
                   
                   <div className="flex justify-between items-start mb-12 relative z-10">
                     <div className="w-16 h-16 bg-slate-50 text-slate-400 rounded-2xl flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 transform group-hover:rotate-6 shadow-inner">
-                      <FileText size={28} />
+                      <FileSearch size={28} />
                     </div>
-                    <div className="flex items-center gap-2 bg-white border border-slate-100 text-slate-600 px-4 py-2 rounded-2xl text-xs font-bold shadow-sm">
+                    <div className="flex items-center gap-2 bg-white border border-slate-100 text-slate-600 px-4 py-2 rounded-2xl text-xs font-black tracking-tighter shadow-sm">
                       <Clock size={14} className="text-amber-500" /> {service.tat}
                     </div>
                   </div>
@@ -175,20 +165,13 @@ const ServicesPage = () => {
                   </p>
 
                   <div className="space-y-10 relative z-10">
-                    <div>
-                      <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.25em] mb-6 flex items-center gap-2">
-                        <Sparkles size={14} /> Core Deliverables
-                      </h4>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {service.includes.map((item, iIdx) => (
-                          <div key={iIdx} className="flex items-center gap-3 text-slate-700 font-semibold text-sm">
-                            <div className="w-6 h-6 rounded-lg bg-emerald-50 flex items-center justify-center flex-shrink-0 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
-                              <CheckCircle2 size={14} />
-                            </div>
-                            {item}
-                          </div>
-                        ))}
-                      </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {service.includes.map((item, iIdx) => (
+                        <div key={iIdx} className="flex items-center gap-3 text-slate-700 font-bold text-sm">
+                          <CheckCircle2 size={18} className="text-emerald-500" />
+                          {item}
+                        </div>
+                      ))}
                     </div>
 
                     <div className="p-6 bg-slate-50/50 rounded-3xl border border-slate-100 group-hover:border-blue-100 group-hover:bg-blue-50/30 transition-all">
@@ -198,7 +181,7 @@ const ServicesPage = () => {
 
                     <button 
                       onClick={() => handleWhatsAppRedirect(service.title)}
-                      className="w-full py-5 bg-slate-900 text-white rounded-[2rem] font-black text-sm hover:bg-blue-600 hover:scale-[1.02] transition-all flex items-center justify-center gap-3 shadow-2xl shadow-slate-900/20 active:scale-95"
+                      className="w-full py-5 bg-slate-900 text-white rounded-[2rem] font-black text-xs tracking-widest uppercase hover:bg-blue-600 hover:scale-[1.02] transition-all flex items-center justify-center gap-3 shadow-2xl shadow-slate-900/20 active:scale-95"
                     >
                       <MessageCircle size={18} />
                       Start Registration
@@ -206,7 +189,7 @@ const ServicesPage = () => {
                   </div>
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
           </div>
         ))}
 
@@ -215,75 +198,47 @@ const ServicesPage = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-slate-900 rounded-[4rem] p-10 lg:p-24 text-white relative overflow-hidden shadow-3xl"
+          className="bg-slate-950 rounded-[4rem] p-10 lg:p-24 text-white relative overflow-hidden"
         >
-          {/* Animated Background Orbs */}
-          <div className="absolute top-0 right-0 w-full h-full">
-             <div className="absolute top-10 right-10 w-64 h-64 bg-blue-600/30 blur-[120px] rounded-full animate-pulse" />
-             <div className="absolute bottom-10 left-10 w-64 h-64 bg-indigo-600/20 blur-[120px] rounded-full" />
+          <div className="absolute top-0 right-0 w-full h-full opacity-20">
+             <div className="absolute top-10 right-10 w-96 h-96 bg-blue-600 blur-[120px] rounded-full animate-pulse" />
           </div>
 
           <div className="relative z-10 grid lg:grid-cols-5 gap-20 items-center">
             <div className="lg:col-span-2">
-              <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight tracking-tighter">
-                The <span className="text-blue-400 italic">Janseva</span>
-                <br />
-                Edge
+              <h2 className="text-5xl md:text-6xl font-black mb-8 leading-tight tracking-tighter">
+                The <span className="text-blue-400 italic font-medium">Janseva</span> Edge
               </h2>
-              <p className="text-slate-400 text-lg mb-12 leading-relaxed">
+              <p className="text-slate-400 text-xl mb-12 leading-relaxed">
                 We've automated the friction out of legal filing. Secure, paperless, and lightning fast.
               </p>
 
               <div className="inline-flex items-center gap-4 p-6 bg-white/5 border border-white/10 rounded-[2.5rem] backdrop-blur-xl">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg">
-                  <Lock className="text-white" size={24} />
+                <div className="w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center shadow-lg">
+                  <ShieldCheck className="text-white" size={24} />
                 </div>
                 <div>
                   <p className="text-md font-black">Bank-Grade Security</p>
-                  <p className="text-xs text-slate-500 uppercase tracking-widest font-bold">AES-256 Encryption</p>
+                  <p className="text-[10px] text-slate-500 uppercase tracking-widest font-black">AES-256 Encryption</p>
                 </div>
               </div>
             </div>
 
-            <div className="lg:col-span-3 space-y-6">
+            <div className="lg:col-span-3 space-y-4">
               {[
-                {
-                  step: "01",
-                  icon: <FileText size={20} />,
-                  title: "Digital Vault",
-                  desc: "Upload documents once. Encrypted and ready for all your filings.",
-                },
-                {
-                  step: "02",
-                  icon: <Zap size={20} />,
-                  title: "Expert Verification",
-                  desc: "Our CAs audit every detail to ensure 0% rejection rates.",
-                },
-                {
-                  step: "03",
-                  icon: <ShieldCheck size={20} />,
-                  title: "Dashboard Delivery",
-                  desc: "Access your certificates instantly on your personalized portal.",
-                },
+                { step: "01", icon: <FileText size={20} />, title: "Digital Vault", desc: "Upload documents once. Encrypted and ready for all your future filings." },
+                { step: "02", icon: <Zap size={20} />, title: "Expert Verification", desc: "Our internal team audits every detail to ensure 0% rejection rates with the MCA." },
+                { step: "03", icon: <Lock size={20} />, title: "Instant Delivery", desc: "Access your certificates and compliance calendar on your personal dashboard." }
               ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  whileHover={{ x: 15 }}
-                  className="flex gap-8 p-10 bg-white/5 rounded-[3rem] border border-white/5 hover:border-blue-500/30 transition-all group"
-                >
-                  <span className="text-6xl font-black text-white/5 group-hover:text-blue-500/20 transition-colors duration-500">
-                    {item.step}
-                  </span>
+                <div key={i} className="flex gap-8 p-10 bg-white/5 rounded-[3rem] border border-white/5 hover:border-blue-500/30 transition-all group">
+                  <span className="text-6xl font-black text-white/5 group-hover:text-blue-500/20 transition-colors duration-500">{item.step}</span>
                   <div>
-                    <h4 className="text-2xl font-bold mb-3 flex items-center gap-3">
-                      <span className="text-blue-400">{item.icon}</span>
-                      {item.title}
+                    <h4 className="text-2xl font-black mb-3 flex items-center gap-3">
+                      <span className="text-blue-400">{item.icon}</span> {item.title}
                     </h4>
-                    <p className="text-slate-400 text-lg leading-relaxed">
-                      {item.desc}
-                    </p>
+                    <p className="text-slate-400 text-lg leading-relaxed">{item.desc}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>

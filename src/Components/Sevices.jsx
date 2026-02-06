@@ -168,44 +168,6 @@ const Services = () => {
           whileInView={{ opacity: 1 }}
           className="hidden lg:block mb-24"
         >
-          <div className="bg-slate-900 rounded-[3rem] p-12 relative overflow-hidden">
-             {/* Abstract Background */}
-             <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/20 blur-[100px] -mr-48 -mt-48 rounded-full"></div>
-             
-             <h4 className="text-3xl font-black text-white mb-10 text-center">Entity Selection Guide</h4>
-             <div className="relative overflow-hidden rounded-3xl border border-white/10 backdrop-blur-sm">
-                <table className="w-full text-left">
-                  <thead className="bg-white/5 text-blue-400">
-                    <tr>
-                      <th className="p-6 font-black uppercase text-xs tracking-widest">Core Feature</th>
-                      <th className="p-6 font-black uppercase text-xs tracking-widest">Pvt. Ltd Company</th>
-                      <th className="p-6 font-black uppercase text-xs tracking-widest">LLP</th>
-                      <th className="p-6 font-black uppercase text-xs tracking-widest">One Person Co (OPC)</th>
-                    </tr>
-                  </thead>
-                  <tbody className="text-slate-300">
-                    <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                      <td className="p-6 font-bold text-white">Ideal For</td>
-                      <td className="p-6">Startups seeking VC funding</td>
-                      <td className="p-6">Consultancies & Professionals</td>
-                      <td className="p-6">Solo Digital Nomads</td>
-                    </tr>
-                    <tr className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                      <td className="p-6 font-bold text-white">Maintenance</td>
-                      <td className="p-6"><span className="text-rose-400">Strict/High</span></td>
-                      <td className="p-6"><span className="text-emerald-400">Minimal/Low</span></td>
-                      <td className="p-6">Moderate</td>
-                    </tr>
-                    <tr className="hover:bg-white/5 transition-colors">
-                      <td className="p-6 font-bold text-white">Credibility</td>
-                      <td className="p-6">Highest Globally</td>
-                      <td className="p-6">High (Contractors)</td>
-                      <td className="p-6">Moderate (Individual)</td>
-                    </tr>
-                  </tbody>
-                </table>
-             </div>
-          </div>
         </motion.div>
 
         {/* --- FINAL CTA SECTION --- */}

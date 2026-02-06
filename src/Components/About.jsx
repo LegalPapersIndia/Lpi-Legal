@@ -2,15 +2,23 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   CheckCircle, Award, Users, Scale, ShieldCheck, 
-  Linkedin, Mail, ArrowUpRight, TrendingUp 
+  Linkedin, Mail, ArrowUpRight, TrendingUp,
+  Globe, Zap, Target, HeartHandshake, Eye
 } from 'lucide-react';
 
 const AboutUs = () => {
   const expertise = [
-    { title: "Corporate Law", icon: <Scale />, desc: "Framework for modern startups." },
-    { title: "Taxation & GST", icon: <ShieldCheck />, desc: "Strategic fiscal compliance." },
-    { title: "IPR & Trademarks", icon: <Award />, desc: "Protecting your unique identity." },
-    { title: "Licensing", icon: <CheckCircle />, desc: "Government approvals simplified." },
+    { title: "Corporate Law", icon: <Scale />, desc: "Scaling startups with ironclad legal frameworks." },
+    { title: "Taxation & GST", icon: <ShieldCheck />, desc: "Strategic fiscal compliance and optimization." },
+    { title: "IPR & Trademarks", icon: <Award />, desc: "Guarding your intellectual capital and identity." },
+    { title: "Licensing", icon: <CheckCircle />, desc: "Navigating complex regulatory approvals." },
+  ];
+
+  const values = [
+    { title: "Integrity First", icon: <ShieldCheck />, text: "We believe in radical transparency. No hidden clauses, just honest legal counsel." },
+    { title: "Innovation Driven", icon: <Zap />, text: "Using AI-driven legal tools to speed up filings and research by 40%." },
+    { title: "Client Centric", icon: <HeartHandshake />, text: "Your growth is our North Star. We scale our services as you grow." },
+    { title: "Global Vision", icon: <Globe />, text: "Helping Indian businesses go global with cross-border legal support." }
   ];
 
   const team = [
@@ -46,16 +54,14 @@ const AboutUs = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            {/* Main Image with decorative border */}
             <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white">
               <img 
                 src="https://img.freepik.com/free-photo/photorealistic-law-environment_23-2151202465.jpg?w=740" 
                 alt="Legal Office" 
-                className="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-700"
+                className="w-full h-[600px] object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>
             
-            {/* Floating Experience Card */}
             <motion.div 
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
@@ -68,9 +74,6 @@ const AboutUs = () => {
               <p className="text-5xl font-black mb-1">15+</p>
               <p className="text-xs font-bold uppercase tracking-widest text-blue-100">Years of <br/> Excellence</p>
             </motion.div>
-
-            {/* Background element */}
-            <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-50 rounded-full blur-3xl -z-0" />
           </motion.div>
 
           <motion.div 
@@ -81,18 +84,33 @@ const AboutUs = () => {
           >
             <div>
               <span className="text-blue-700 font-black tracking-[0.3em] text-xs uppercase bg-blue-50 px-4 py-1.5 rounded-full inline-block mb-4">
-                Our Legacy
+                Who We Are
               </span>
               <h3 className="text-4xl md:text-5xl font-black text-slate-900 leading-[1.15]">
-                Empowering Dreams Through <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-500">Legal Precision.</span>
+                Bridging the Gap Between <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-500">Legal Complexity & Business Growth.</span>
               </h3>
             </div>
             
             <p className="text-slate-500 text-lg leading-relaxed">
-              Legal Service Janseva (LPI-Legal) isn't just a consultancy; we are the architectural partners of your business success. We've replaced traditional legal bureaucracy with digital-first efficiency.
+              Founded on the principles of <strong>transparency and accessibility</strong>, Legal Service Janseva (LPI-Legal) has evolved from a boutique firm into a powerhouse of corporate consultancy. We don't just file papers; we engineer the legal foundations that allow startups to scale without fear.
             </p>
+
+            <div className="grid sm:grid-cols-2 gap-6">
+               <div className="space-y-2">
+                  <h4 className="flex items-center gap-2 font-bold text-slate-900">
+                    <Target className="text-blue-700" size={20}/> Our Mission
+                  </h4>
+                  <p className="text-sm text-slate-500">To democratize premium legal counsel for every entrepreneur, ensuring compliance is a catalyst for growth, not a hurdle.</p>
+               </div>
+               <div className="space-y-2">
+                  <h4 className="flex items-center gap-2 font-bold text-slate-900">
+                    <Eye className="text-blue-700" size={20}/> Our Vision
+                  </h4>
+                  <p className="text-sm text-slate-500">To become India's most trusted digital-first legal partner by 2030, serving 50k+ businesses globally.</p>
+               </div>
+            </div>
             
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-4 pt-4">
               {expertise.map((item, index) => (
                 <motion.div 
                   key={index} 
@@ -112,6 +130,25 @@ const AboutUs = () => {
           </motion.div>
         </div>
 
+        {/* --- CORE VALUES SECTION --- */}
+        <div className="mb-32">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl font-black text-slate-900 mb-4">Values That Define Us</h3>
+            <p className="text-slate-500 max-w-2xl mx-auto">Behind every successful filing and every won case is a set of core values that guide our professional conduct.</p>
+          </div>
+          <div className="grid md:grid-cols-4 gap-8">
+            {values.map((v, i) => (
+              <div key={i} className="p-8 border border-slate-100 rounded-3xl hover:border-blue-200 hover:shadow-xl hover:shadow-blue-50 transition-all group">
+                <div className="w-12 h-12 bg-blue-50 text-blue-700 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-700 group-hover:text-white transition-colors">
+                  {v.icon}
+                </div>
+                <h4 className="text-xl font-bold text-slate-900 mb-3">{v.title}</h4>
+                <p className="text-slate-500 text-sm leading-relaxed">{v.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* --- STATS DASHBOARD --- */}
         <motion.div 
           initial={{ y: 50, opacity: 0 }}
@@ -119,7 +156,6 @@ const AboutUs = () => {
           viewport={{ once: true }}
           className="bg-slate-900 rounded-[3rem] p-8 md:p-16 mb-32 relative overflow-hidden shadow-2xl shadow-blue-900/20"
         >
-          {/* Decorative background circle */}
           <div className="absolute -right-20 -top-20 w-64 h-64 bg-blue-600 rounded-full blur-[100px] opacity-20" />
           
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 relative z-10">
@@ -142,6 +178,7 @@ const AboutUs = () => {
         <div className="text-center mb-20">
           <span className="text-blue-700 font-black tracking-widest text-xs uppercase mb-3 block">The Brain Trust</span>
           <h3 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Meet the Professionals</h3>
+          <p className="text-slate-500 mt-4 max-w-xl mx-auto">A multidisciplinary team of Advocates, Chartered Accountants, and Corporate Secretaries working in sync.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-10">
@@ -160,8 +197,6 @@ const AboutUs = () => {
                   alt={member.name} 
                   className="w-full h-96 object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
                 />
-                
-                {/* Overlay Action */}
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
                   <div className="flex gap-3">
                     <button className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-blue-900 hover:bg-blue-100 transition-colors">
